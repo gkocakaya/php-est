@@ -111,7 +111,6 @@ class Est {
         $email = $this->__get_value($extra, "email");
         $ipaddress = $this->__get_value($extra, "ipaddress");
         $userid = $this->__get_value($extra, "userid");
-        $ordertype = $this->__get_value($extra, "ordertype");
 
         $document = new XMLBuilder();
         $elements = array("Name" => $username, "Password" => $password, "ClientId" => $clientid,
@@ -120,26 +119,9 @@ class Est {
             "Taksit" => $installment, "Number" => $credit_card_number, "Expires" => $expires,
             "Cvv2Val" => $cvv, "Total" => $amount, "Email" => $email, "IPAddress" => $ipaddress
         );
-
         $domElements = $document->createElementsWithTextNodes($elements);
         $document->appendListOfElementsToElement($document->root(), $domElements);
 
-        if ($ordertype) {
-            $pborder = $document->createElement("PbOrder");
-            $ordertype = $this->__get_value($extra, "ordertype");
-            $totalnumberaayments = $this->__get_value($extra, "totalnumberaayments");
-            $orderfrequencycycle = $this->__get_value($extra, "orderfrequencycycle");
-            $orderfrequencyinterval = $this->__get_value($extra, "orderfrequencyinterval");
-
-            $elements = array(
-                "OrderType" => $ordertype,
-                "TotalNumberPayments" => $totalnumberaayments,
-                'OrderFrequencyCycle' => $orderfrequencycycle,
-                'OrderFrequencyInterval>' => $orderfrequencyinterval
-            );
-
-            $domElements = $document->createElementsWithTextNodes($elements);
-        }
         $billto = $document->createElement("BillTo");
         $billing_address_name = $this->__get_value($extra, "billing_address_name");
         $billing_address_street1 = $this->__get_value($extra, "billing_address_street1");
@@ -162,6 +144,27 @@ class Est {
         $document->root()->appendChild($billto);
 
 
+
+        $ordertype = $this->__get_value($extra, "ordertype");
+
+        if ($ordertype) {
+            $pborder = $document->createElement("PbOrder");
+
+            $totalnumberaayments = $this->__get_value($extra, "totalnumberaayments");
+            $orderfrequencycycle = $this->__get_value($extra, "orderfrequencycycle");
+            $orderfrequencyinterval = $this->__get_value($extra, "orderfrequencyinterval");
+
+            $elements = array(
+                "OrderType" => $ordertype,
+                "TotalNumberPayments" => $totalnumberaayments,
+                "OrderFrequencyCycle" => $orderfrequencycycle,
+                "OrderFrequencyInterval" => $orderfrequencyinterval
+            );
+
+            $domElements = $document->createElementsWithTextNodes($elements);
+            $document->appendListOfElementsToElement($pborder, $domElements);
+            $document->root()->appendChild($pborder);
+        }
         $shipto = $document->createElement("ShipTo");
         $shipping_address_name = $this->__get_value($extra, "shipping_address_name");
         $shipping_address_street1 = $this->__get_value($extra, "shipping_address_street1");
@@ -185,6 +188,7 @@ class Est {
         $document->root()->appendChild($shipto);
         $documentString = $document->saveXML();
         $this->raw_request = $documentString;
+
 
         /* After the XML request has been created, we should now set the HTTP request using curl library..   */
         $url = $this->__connect() . $this->credentials["purchaseOrderURL"];
