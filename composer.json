@@ -1,5 +1,5 @@
 {
-    "name": "gkocakaya/est",
+    "name": "ekrembk/est",
     "version": "1.0",
     "description": "Virtual POS interface to the EST Payment Gateway (Turkey)",
     "keywords": ["est", "payment", "turkey"],
