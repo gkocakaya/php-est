@@ -203,6 +203,9 @@ class Est {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         // Add the HTTP POST body..
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+         // SSL bug fixed
+        curl_setopt($curl, CURLOPT_SSLVERSION, 0); 
+        
         // Set the HTTP request header..
         curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type" => "application/x-www-form-urlencoded"));
         // Execute the request and save the response inside a variable called 'raw_response'..
@@ -287,6 +290,8 @@ class Est {
         // Set the HTTP response header to False not to get the response header..
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+       // SSL bug fixed
+        curl_setopt($curl, CURLOPT_SSLVERSION, 0); 
         // Add the HTTP POST body..
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         // Set the HTTP request header..
@@ -371,6 +376,8 @@ class Est {
         // Set the HTTP response header to False not to get the response header..
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+         // SSL bug fixed
+        curl_setopt($curl, CURLOPT_SSLVERSION, 0); 
         // Add the HTTP POST body..
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         // Set the HTTP request header..
@@ -454,6 +461,8 @@ class Est {
         // Set the HTTP response header to False not to get the response header..
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+         // SSL bug fixed
+        curl_setopt($curl, CURLOPT_SSLVERSION, 0); 
         // Add the HTTP POST body..
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         // Set the HTTP request header..
@@ -540,6 +549,8 @@ class Est {
         // Set the HTTP response header to False not to get the response header..
         curl_setopt($curl, CURLOPT_HEADER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+         // SSL bug fixed
+        curl_setopt($curl, CURLOPT_SSLVERSION, 0); 
         // Add the HTTP POST body..
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         // Set the HTTP request header..
