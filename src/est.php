@@ -147,7 +147,7 @@ class Est {
 
         $ordertype = $this->__get_value($extra, "ordertype");
 
-        if ($ordertype) {
+        if ($ordertype=='0') {
             $pborder = $document->createElement("PbOrder");
 
             $totalnumberaayments = $this->__get_value($extra, "totalnumberaayments");
