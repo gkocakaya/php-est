@@ -1,5 +1,5 @@
 {
-    "name": "ekrembk/est",
+    "name": "ozgur/est",
     "version": "1.0",
     "description": "Virtual POS interface to the EST Payment Gateway (Turkey)",
     "keywords": ["est", "payment", "turkey"],
@@ -18,7 +18,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/gkocakaya/php-est"
+            "url": "https://github.com/ozgur/php-est"
         }
     ],
     "autoload": {
