@@ -2,7 +2,7 @@
 
 mb_internal_encoding("utf-8");
 
-class Est {
+class est {
 
     private $slug; // akbank, garanti, finansbank, halkbank, isbank, anadolubank
     private $company; // merchant id
