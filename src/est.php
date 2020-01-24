@@ -60,7 +60,7 @@ class est {
             "detailOrderURL" => "/servlet/cc5ApiServer",
             "cancelOrderURL" => "/servlet/cc5ApiServer",
             "returnOrderURL" => "/servlet/cc5ApiServer",
-            "purchaseOrderURL" => "/servlet/cc5ApiServer")
+            "purchaseOrderURL" => "/servlet/cc5ApiServer"),
         "ziraat" => array("host" => "sanalpos2.ziraatbank.com.tr",
             "testhost" => "testsanalpos.est.com.tr",
             "listOrdersURL" => "/servlet/listapproved",
